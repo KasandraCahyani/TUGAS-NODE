@@ -68,6 +68,26 @@ void tambahDepan(int databaru) {
 	}   //tambah depan
 }
 
+void tambahBelakang(int databaru) {
+	Node *baru;
+	baru = new Node();
+	baru->data = databaru;
+	baru->next = baru;
+	if (isEmpty()) {
+		head = baru;
+		head->next = head;
+	} else {
+		Node *bantu;
+		bantu = head;
+		while (bantu->next != head) {
+			bantu = bantu->next;
+		}
+		bantu->next = baru;
+		baru->next=head;
+	}   //tambah belakang
+}
+	
+
 void cetak() {
 	if (!isEmpty()) {
 		Node *bantu;
